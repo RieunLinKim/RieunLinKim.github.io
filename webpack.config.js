@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
-  entry: "./index.js",
+  entry: "./src/index.js",
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, "dist"),
@@ -14,15 +14,14 @@ module.exports = {
     host: "localhost",
     watchFiles: 'index.html',
   },
-  context: path.join(__dirname, 'src'),
   plugins: [
     new CopyPlugin({
       patterns: [
-        { from: './assets/', to: './assets/' },
+        { from: './src/assets/', to: './assets/' },
       ],
     }),
     new HtmlWebpackPlugin({
-      template: "index.html",
+      template: "./index.html",
       inject: 'body',
     }),
   ],
