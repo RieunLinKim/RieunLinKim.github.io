@@ -10,6 +10,7 @@ module.exports = {
     filename: 'bundle.[contenthash].js',  // Add content hash for cache busting
     path: path.resolve(__dirname, "dist"),  // Output directory for build files
     clean: true,  // Clean the output directory before each build
+    publicPath: '',
   },
   devServer: {
     open: true,
@@ -20,12 +21,13 @@ module.exports = {
   plugins: [
     new CopyPlugin({
       patterns: [
-        { from: './src/assets/*.pdf', to: './assets/' },  // Copy assets from src/assets to dist/assets
+        // Copy PDFs to the correct location
+        { from: './src/assets/*.pdf', to: 'assets/[name][ext]' },
       ],
     }),
     new HtmlWebpackPlugin({
       template: "./index.html",  // Use index.html as the base HTML template
-      inject: 'body',  // Automatically inject CSS and JS into the HTML
+      // inject: 'body',  // Automatically inject CSS and JS into the HTML
     }),
     new MiniCssExtractPlugin({
       filename: 'main.[contenthash].css',  // Output CSS with content hash
@@ -48,7 +50,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,  // Handle fonts and images
+        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif|jpe?g)$/i,  // Handle fonts and images
         type: "asset/resource",
         generator: {
           filename: "assets/images/[name][ext]",
@@ -60,7 +62,6 @@ module.exports = {
         options: {
           sources: {
             list: [
-              "...",
               {
                 tag: "img",
                 attribute: "src",
