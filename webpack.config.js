@@ -4,10 +4,10 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  mode: "development",  // Use "production" for production builds
+  mode: "development",  // or "production" for production builds
   entry: "./src/index.js",  // Entry point of your app
   output: {
-    filename: 'bundle.js',  // Output JS bundle file
+    filename: 'bundle.[contenthash].js',  // Add content hash for cache busting
     path: path.resolve(__dirname, "dist"),  // Output directory for build files
     clean: true,  // Clean the output directory before each build
   },
@@ -25,10 +25,10 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: "./index.html",  // Use index.html as the base HTML template
-      inject: true,
+      inject: 'body',  // Automatically inject CSS and JS into the HTML
     }),
     new MiniCssExtractPlugin({
-      filename: 'main.css',  // Always output CSS to main.css (no hash)
+      filename: 'main.[contenthash].css',  // Output CSS with content hash
     }),
   ],
   module: {
@@ -41,7 +41,7 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,  // SCSS loader
         use: [
-          MiniCssExtractPlugin.loader,  // Extract CSS into separate file
+          MiniCssExtractPlugin.loader,  // Extract CSS into a separate file
           "css-loader",  // Translates CSS into CommonJS
           "postcss-loader",  // Apply PostCSS transformations (e.g., autoprefixer)
           "sass-loader",  // Compile SCSS to CSS
