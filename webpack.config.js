@@ -26,8 +26,9 @@ module.exports = {
     }),
     // Generate index.html with injected CSS and JS
     new HtmlWebpackPlugin({
-      template: "./index.html",  // Use the base HTML template
-      inject: 'body',  // Inject JS at the bottom of the body
+      template: "./index.html",  // Point to your base HTML template
+      inject: 'body',
+      publicPath: './',  // Ensure relative paths for CSS/JS
     }),
     // Extract CSS into a separate file
     new MiniCssExtractPlugin({
