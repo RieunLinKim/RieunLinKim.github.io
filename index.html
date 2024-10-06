@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Website</title>
+    <!-- Link to Compiled CSS -->
+    <link rel="stylesheet" href="css/main.scss">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-brand">>_ LINSPACE</div>
+        <div class="navbar-menu">
+            <a href="#home" class="navbar-item active">Home</a>
+            <a href="#about" class="navbar-item">About Me</a>
+            <a href="#projects" class="navbar-item">Projects</a>
+            <a href="#gallery" class="navbar-item">Photography</a>
+            <a href="#video" class="navbar-item">Video</a>
+        </div>
+    </nav>
+    
+    <!-- Home Section -->
+    <section id="home" class="section background-section">
+        <div class="background-content">
+            <h2>Nice To Meet You!</h2>
+            <p>This is a place where you can get to know me.</p>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+<section id="about" class="section background-section">
+    <div class="background-content">
+        <img src="src/assets/images/image.png" alt="Lin Kim, a CS student and photographer" class="profile"/>
+        <div class="text-content">
+            <h1>My name is Lin Kim</h1>
+            <p>
+                I am a CS student at UIUC.<br>
+                I want to contribute to solving real-world problems with technology.<br><br>
+                I am also an enthusiastic photographer.<br>
+                Please look forward to what I am going to do with computer vision and art!
+            </p>
+            <!-- Contact Me Button -->
+            <button class="open-modal">Contact Me</button>
+        </div>
+    </div>
+</section>
+
+    <!-- Enhanced Modal Structure -->
+<div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-content">
+        <span class="close-modal" aria-label="Close Modal">&times;</span>
+        <h2 id="modal-title">Contact Me</h2>
+        <div class="contact-links">
+            <!-- Resume Link -->
+            <a href="https://docs.google.com/document/d/1Qo6Jtezz83Hm7Wwffga5XErLxgyGRe8dSSl7kOTBJXI/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="Download Resume">
+                <!-- Resume SVG Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16">
+                    <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zM5 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6.5L10.5 1H5z"/>
+                    <path d="M4 5h8v1H4V5zm0 2h8v1H4V7zm0 2h8v1H4V9zm0 2h8v1H4v-1z"/>
+                </svg>
+                Resume
+            </a>
+            <!-- LinkedIn Link with SVG Icon -->
+            <a href="https://www.linkedin.com/in/rieun-lin-kim" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="Visit LinkedIn Profile">
+                <!-- LinkedIn SVG Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                    <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708C16 15.487 15.474 16 14.825 16H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.357-.554 1.357-1.248-.015-.71-.52-1.248-1.34-1.248-.821 0-1.357.538-1.357 1.248 0 .694.52 1.248 1.326 1.248h.014zm4.908 8.212V9.359c0-.217.016-.434.08-.586.173-.434.568-.88 1.231-.88.869 0 1.213.661 1.213 1.633v4.792h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.014a5.506 5.506 0 0 1 .014-.025V6.169h-2.4c.03.684 0 7.225 0 7.225h2.4z"/>
+                </svg>
+                LinkedIn
+            </a>
+            <!-- Email Link -->
+            <a href="mailto:linkim2@illinois.edu" class="contact-link" aria-label="Send an Email">
+                <!-- Email SVG Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2z"/>
+                    <path d="M0 6.383l8 4.8 8-4.8V12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V6.383z"/>
+                </svg>
+                Email
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Projects Section -->
+<section id="projects" class="section projects-section">
+    <h2 id="projects-heading">My CS Projects</h2>
+    <div class="projects-container" role="region" aria-roledescription="list" aria-labelledby="projects-heading">
+        <!-- Project 1 -->
+        <div class="project-item">
+            <a href="https://github.com/RieunLinKim/Medical-AI-for-Sepsis-Prediction" target="_blank" rel="noopener noreferrer">
+                <h3 class="Specimen Image">Medical AI for <br>Early Sepsis Prediction</h3>
+                <p class="project-description">Ensemble of machine learning models for time-series data for sepsis prediction</p>
+            </a>
+        </div>
+        <!-- Project 2 -->
+        <div class="project-item">
+            <a href="https://colab.research.google.com/drive/1h6Sfqp07JgW9SCrzFhCEZ0ojjXII4P8_#scrollTo=8KR3X_OFHQrj" target="_blank" rel="noopener noreferrer">
+                <h3 class="Specimen Image">BTTAI x NYBG AI Studio</h3>
+                <p class="project-description">Specimen image classification for the New York Botanical Garden</p>
+            </a>
+        </div>
+        <!-- Project 3 -->
+        <div class="project-item">
+            <a href="src/assets/Dreamers - Beat the Financial Market.pdf" target="_blank" rel="noopener noreferrer">
+                <h3 class="project-title">Dreamers, Inc.</h3>
+                <p class="project-description">Financial market price prediction with machine learning models for time-series data</p>
+            </a>
+        </div>
+        <!-- Project 4 -->
+        <div class="project-item">
+            <a href="src/assets/SURF 2022 Poster - Rieun "Lin" Kim.pdf" target="_blank" rel="noopener noreferrer">
+                <h3 class="project-title">Quadrotor Flight Demonstration</h3>
+                <p class="project-description">Drone flight demonstration in a robot-environment interaction system and simulations</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Photography Section -->
+<section id="gallery" class="section full-screen-gallery">
+    <h2 id="gallery-heading">My Hobby : Photography</h2>
+    <div class="gallery" role="region" aria-roledescription="carousel" aria-labelledby="gallery-heading">
+        <div class="gallery-slide active">
+            <img src="src/assets/images/image1.jpg" alt="Photo 1" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-slide">
+            <img src="src/assets/images/image2.jpg" alt="Photo 2" class="gallery-image" loading="lazy">
+        </div>
+        <div class="gallery-slide">
+            <img src="src/assets/images/image3.jpg" alt="Phto 3" class="gallery-image" loading="lazy">
+        </div>
+        <!-- Navigation Arrows with Correct Classes -->
+        <button class="new-prev-button gallery-prev" aria-label="Previous Slide">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="new-next-button gallery-next" aria-label="Next Slide">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <!-- Indicator Dots -->
+        <div class="gallery-indicators">
+            <span class="indicator active" data-slide="0"></span>
+            <span class="indicator" data-slide="1"></span>
+            <span class="indicator" data-slide="2"></span>
+        </div>
+    </div>
+</section>
+
+<!--
+Video Section
+<section id="video" class="section video-section">
+    <div class="video-container">
+        <video controls autoplay muted loop>
+            <source src="src/assets/videos/video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</section>
+-->
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 Lin Kim</p>
+</footer>
+
+    <!-- compiled JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>
