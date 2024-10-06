@@ -10,21 +10,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "18"
+          node-version: "20"
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build the project
         run: npm run build
-        env:
-          NODE_OPTIONS: --openssl-legacy-provider
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
