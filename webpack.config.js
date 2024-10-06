@@ -20,7 +20,7 @@ module.exports = {
   plugins: [
     new CopyPlugin({
       patterns: [
-        { from: './src/assets/', to: './assets/' },  // Copy assets from src/assets to dist/assets
+        { from: './src/assets/*.pdf', to: './assets/' },  // Copy assets from src/assets to dist/assets
       ],
     }),
     new HtmlWebpackPlugin({
@@ -49,11 +49,31 @@ module.exports = {
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,  // Handle fonts and images
-        type: "asset",  // Use Webpack asset module for fonts/images
+        type: "asset/resource",
+        generator: {
+          filename: "assets/images/[name][ext]",
+        },
       },
       {
-        test: /\.html$/i,  // Load and process HTML files
-        loader: "html-loader",  // Process HTML files for Webpack
+        test: /\.html$/i,
+        loader: "html-loader",
+        options: {
+          sources: {
+            list: [
+              "...",
+              {
+                tag: "img",
+                attribute: "src",
+                type: "src",
+              },
+              {
+                tag: 'source',
+                attribute: 'srcset',
+                type: 'srcset',
+              },
+            ],
+          },
+        },
       },
     ],
   },
