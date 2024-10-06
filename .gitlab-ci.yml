@@ -1,26 +1,31 @@
-image: node:latest
+name: Deploy to GitHub Pages
 
-variables:
-  PUBLIC_URL: /mp1
+on:
+  push:
+    branches:
+      - main
 
-cache:
-  paths:
-  - node_modules
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-stages:
-  - deploy
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-pages:
-  stage: deploy
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
 
-  script:
-    - npm install
-    - npm run build
-    - mv dist public
+      - name: Install dependencies
+        run: npm install
 
-  artifacts:
-    paths:
-    - public
+      - name: Build the project
+        run: npm run build
 
-  only:
-    - master
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist 
