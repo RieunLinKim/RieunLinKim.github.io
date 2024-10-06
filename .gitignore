@@ -6,5 +6,4 @@ public/
 public/*
 .DS_Store
 .cache/
-dist/
 node_modules/
